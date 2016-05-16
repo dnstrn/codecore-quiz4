@@ -1,0 +1,1 @@
+$('[href*="eal"]').highlight('red')

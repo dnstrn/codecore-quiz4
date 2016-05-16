@@ -1,0 +1,25 @@
+<h1><%= @company.name %></h1>
+
+<p><%= @company.created_at %></p>
+
+<%= link_to "Delete Company", company_path(@company), method: :delete, data: {confirm: "Are you sure?"} %><br><br>
+
+<%= form_for [@company, @product] do |f| %>
+  <div>
+  <%= f.text_field :name %>
+  </div>
+  <div>
+  <%= f.submit "New Product"%>
+  </div>
+<% end %>
+<br>
+<hr>
+
+<h2>Products</h2>
+<% @company.products.each do |p| %>
+<div>
+  <p><%= p.name %></p>
+  <%= link_to "Delete Product", company_product_path(@company, p),
+                        method: :delete %>
+</div>
+<% end %>
